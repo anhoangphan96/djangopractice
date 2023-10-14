@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from appTwo.models import User
-# Create your views here.
+from AppTwo.models import User
+
 
 def index(request):
-    return render(request,'apptwo/index.html')
+    return render(request, "AppTwo/index.html")
+
 
 def users(request):
+    user_list = User.objects.all()
+    return render(request, "AppTwo/users.html", {"user_list": user_list})
 
-    user_list = User.objects.order_by('first_name')
-    user_dict = {"users":user_list}
-    return render(request,'apptwo/users.html',context=user_dict)
+
+# Create your views here.

@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Users</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User page</title>
   </head>
   <body>
-    <h1>Here are your users:</h1>
-
-    {% if users%}
+    <h2>Here are your users for AppTwo:</h2>
 
     <ol>
-      {% for person in users %}
-      <li>User Info</li>
-        <ul>
-          <li>First Name: {{person.first_name}}</li>
-          <li>Last Name: {{person.last_name}}</li>
-          <li>Email: {{person.email}}</li>
-        </ul>
-        {% endfor %}
+      {% for u in user_list%}
+      <li>User Infor</li>
+      <ul>
+        <li>First Name: {{ u.first_name }}</li>
+        <li>Last Name: {{u.last_name}}</li>
+        <li>Email: {{u.email}}</li>
+      </ul>
+
+      {% endfor%}
     </ol>
-
-
-
-
-    {% endif %}
   </body>
 </html>
