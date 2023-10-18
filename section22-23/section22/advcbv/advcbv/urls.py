@@ -22,4 +22,8 @@ from django.urls import include
 urlpatterns = [
     path("", views.IndexView.as_view()),
     path("admin/", admin.site.urls),
+    path(
+        "basic_app/",
+        include("basic_app.urls", namespace="basic_app"),
+    ),
 ]
