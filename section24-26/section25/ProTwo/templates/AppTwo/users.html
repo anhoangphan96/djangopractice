@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User page</title>
+  </head>
+  <body>
+    <h2>Here are your users for AppTwo:</h2>
+
+    <ol>
+      {% for u in user_list%}
+      <li>User Infor</li>
+      <ul>
+        <li>First Name: {{ u.first_name }}</li>
+        <li>Last Name: {{u.last_name}}</li>
+        <li>Email: {{u.email}}</li>
+      </ul>
+
+      {% endfor%}
+    </ol>
+  </body>
+</html>
