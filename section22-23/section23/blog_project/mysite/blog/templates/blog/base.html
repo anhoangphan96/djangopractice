@@ -12,6 +12,8 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossorigin="anonymous"
 />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+
 <!-- Medium Style Editor -->
 <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
@@ -21,6 +23,7 @@
 
 <!--Fonts-->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Russo+One&display=swap" rel="stylesheet">
+
 </head>
 <body class="loader">
   <!-- NavBar-->
@@ -49,31 +52,31 @@
     <ul class="nav navbar-nav navbar-right">
       {% if user.is_authenticated %}
       <li> 
-        <a href="{% url 'post_new'}">New Post</a>
+        <a href="{% url 'post_new' %}" class="nav-item nav-link">New Post</a>
       </li>
       <li> 
-        <a href="{% url 'post_draft_list'}">Drafts</a>
+        <a href="{% url 'post_draft_list' %}" class="nav-item nav-link">Drafts</a>
       </li>
       <li> 
-        <a href="{% url 'logout'}">Logout</a>
+        <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
       </li>
       <li> 
-        <a>Welcome: {{user.username}}</a>
+        <a class="nav-item nav-link">Welcome: {{user.username}}</a>
       </li>
       {% else %}
       <li><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a></li>
       {% endif %}
     <!-- Content Block-->
-    <div class="content container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="blog_posts">
-            {%block content %}
-            {% endblock %}
-          </div>
-        </div>
-      </div>
   </div>
 </nav>
+<div class="content container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="blog_posts">
+        {%block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
 </body>
 </html>

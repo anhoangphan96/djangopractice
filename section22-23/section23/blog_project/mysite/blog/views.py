@@ -51,7 +51,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = reverse_lazy("post_detail")
+    success_url = reverse_lazy("post_list")
 
 
 class DraftListView(LoginRequiredMixin, ListView):
@@ -66,7 +66,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 @login_required
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.publish
+    post.publish()
     return redirect("post_detail", pk=pk)
 
 
