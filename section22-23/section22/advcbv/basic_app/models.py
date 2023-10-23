@@ -18,7 +18,7 @@ class School(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=256)
     age = models.PositiveIntegerField()
-    School = models.ForeignKey(
+    School = models.(
         School, related_name="students", on_delete=models.CASCADE
     )
 

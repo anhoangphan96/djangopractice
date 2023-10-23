@@ -36,8 +36,10 @@ class Group(models.Model):
 
 
 class GroupMember(models.Model):
-    group = models.ForeignKey(Group, related_name="memberships")
-    user = models.ForeignKey(User, related_name="user_group")
+    group = models.ForeignKey(
+        Group, related_name="memberships", on_delete=models.CASCADE
+    )
+    user = models.ForeignKey(User, related_name="user_group", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
@@ -64,10 +66,10 @@ class GroupMember(models.Model):
 
 
 # Gán giá trị slug cho self.slug, sử dụng hàm slugify() để tạo một slug từ self.name. slugify() chuyển đổi chuỗi thành một slug hợp lệ, thường dùng cho các thành phần URL thân thiện với SEO.
-# Chuyển đổi nội dung self.description_html thành mã HTML sử dụng misaka.html(), một công cụ xử lý Markdown cho Python.
+# Chuyển đổi nội dung self.description_html thành mã HTML sử dụng .html(), một công cụ xử lý Markdown cho Python.
 # Gọi phương thức super().save(*args, **kwargs) để lưu trữ đối tượng Group một cách bình thường.
 
-#    Các tham số *args và **kwargs cho phép phương thức save() nhận các tham số bổ sung.
+# Các tham số *args và **kwargs cho phép phương thức save() nhận các tham số bổ sung.
 
 # get_absolute_url(self): Đây là một phương thức để xác định URL tuyệt đối cho đối tượng Group. Phương thức này sử dụng hàm reverse() để xác định URL của tài nguyên group:single, sử dụng self.slug làm đối số cho thành phần slug trong URL. Khi gọi get_absolute_url() trên một đối tượng Group, nó sẽ trả về URL tuyệt đối để xem chi tiết nhóm.
 
